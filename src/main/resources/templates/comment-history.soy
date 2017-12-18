@@ -1,0 +1,43 @@
+{namespace Mesilat.CommentHistory.Templates}
+/**
+* List of Comment Versions template
+* @param data
+*/
+{template .listCommentVersions}
+<div class="com-mesilat-comment-history">
+    <table class="">
+        <thead>
+            <tr>
+                <th>{getText('com.mesilat.comment-history.report.date')}</th>
+                <th>{getText('com.mesilat.comment-history.report.user')}</th>
+                <th>{getText('com.mesilat.comment-history.report.body')}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {foreach $rec in $data}
+                {call .commentVersion}
+                    {param rec: $rec/}
+                {/call}
+            {/foreach}
+        </tbody>
+    </table>
+</div>
+{/template}
+
+/**
+* Comment Version template
+* @param rec
+*/
+{template .commentVersion}
+<tr class="com-mesilat-comment-{$rec.contentId}">
+    <td class='com-mesilat-comment-date'>{$rec.date}</td>
+    <td class='com-mesilat-comment-user'>
+        {call Confluence.Templates.User.usernameLink}
+            {param username: $rec.lastModifierUserName /}
+            {param fullName: $rec.lastModifierFullName /}
+            {param canView: false /}
+        {/call}
+    </td>
+    <td class='com-mesilat-comment-body'>{$rec.body}</td>
+</tr>
+{/template}

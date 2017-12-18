@@ -1,0 +1,14 @@
+div.com-mesilat-comment-history
+{
+    font-size: 85%;
+}
+div.com-mesilat-comment-history del {
+        text-decoration: line-through;
+	color: #b30000;
+	background: #fadad7;
+}
+div.com-mesilat-comment-history ins {
+	background: #eaf2c2;
+	color: #406619;
+	text-decoration: none;
+}

@@ -1,0 +1,40 @@
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2">
+    <plugin-info>
+        <description>${project.description}</description>
+        <version>${project.version}</version>
+        <vendor name="${project.organization.name}" url="${project.organization.url}" />
+        <param name="plugin-icon">images/pluginIcon.png</param>
+        <param name="plugin-logo">images/pluginLogo.png</param>
+        <param name="atlassian-data-center-compatible">true</param>
+    </plugin-info>
+
+    <resource type="i18n" name="i18n" location="/i18n/comment-history"/>
+    
+    <web-resource key="comment-history-resources" name="Comment History Web Resources">
+        <description>Comment History Web Resources</description>
+
+        <transformation extension="soy">
+            <transformer key="soyTransformer">
+                <functions>com.atlassian.confluence.plugins.soy:soy-core-functions</functions>
+            </transformer>
+        </transformation>
+        <transformation extension="js">
+            <transformer key="jsI18n"/>
+        </transformation>
+
+        <dependency>com.atlassian.auiplugin:ajs</dependency>
+
+        <resource type="download" name="comment-history.soy.js" location="/templates/comment-history.soy"/>
+        <resource type="download" name="comment-history.css" location="/css/comment-history.css"/>
+        <resource type="download" name="comment-history.js" location="/js/comment-history.js"/>
+        <resource type="download" name="diff.js" location="/js/diff.js"/>
+        <resource type="download" name="images/" location="/images"/>
+
+        <context>comment-history</context>
+        <context>atl.general</context>
+    </web-resource>
+
+    <rest key="rest" path="/comments-history" version="1.0" name="REST API">
+        <description>Comment History REST API</description>
+    </rest>
+</atlassian-plugin>
