@@ -7,12 +7,12 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.mesilat</groupId>
     <artifactId>comment-history</artifactId>
-    <version>1.0.4</version>
+    <version>1.0.5</version>
     <!-- 1000001 -->
 
     <organization>
         <name>Mesilat Limited</name>
-        <url>https://mesilat.github.io/confluence/comment-history.html</url>
+        <url>https://www.mesilat.com/pages/confluence/comment-history/</url>
     </organization>
 
     <name>Comment History</name>
